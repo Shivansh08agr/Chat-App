@@ -1,0 +1,22 @@
+.userInfo{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .user{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        h1{
+            font-size: 1.5rem;
+        }
+        img{
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            object-fit: contain;
+            background-color: black;
+        }
+    }
+}

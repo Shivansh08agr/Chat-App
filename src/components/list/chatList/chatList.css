@@ -1,0 +1,93 @@
+.chatList{
+    flex: 1;
+    overflow-y: scroll;
+    .search{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .searchBar{
+        flex: 1;
+        background-color: rgba(21, 21, 50, 0.504);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 0.8rem;
+        padding: 0.5rem;
+        input{
+            border: none;
+            background-color: transparent;
+            outline: none;
+            color: white;
+            flex: 1;
+        }
+        img{
+            width: 1.2rem;
+        }
+    }
+    .searchBar:hover, .searchBar:active{
+        background-color: rgba(21, 21, 50, 0.704);
+    }
+    .add{
+        padding: 0.6rem;
+        cursor: pointer;
+        background-color: rgba(21, 21, 50, 0.504);
+        width: 2.1rem;
+        border-radius: 0.5rem;
+    }
+    .add:hover{
+        background-color: rgba(21, 21, 50, 0.704);
+    }
+    .item{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        cursor: pointer;
+        border-bottom: 1px solid #dddddd35;
+        img{
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            object-fit: contain;
+            background-color: black;
+        }
+        .texts{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            span{
+                font-weight: 500;
+            }
+            p{
+                font-size: 0.8rem;
+                font-weight: 200;
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0.4rem;
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.262);
+    border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.413);
+} 
+
+@media screen and (max-width: 767px) {
+    .chatList{
+        .search {
+            gap: 0.3rem;
+            padding: 0.1rem;
+            width: auto;
+        }
+    }
+}
