@@ -74,3 +74,90 @@
         background-color: #dddddd35;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .login{
+        /* width: 50%;
+        height: 50%; */
+        justify-content: center;
+        margin: auto;
+    
+        .item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            h1{
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+    
+                input{
+                    padding: 0.5rem;
+                    border: none;
+                    outline: none;
+                    color: white;
+                    background-color: rgba(21, 21, 50, 0.504);
+                    border-radius: 0.5rem;
+                    width: 15rem;
+                }
+    
+                label{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    text-decoration: underline;
+                    gap: 0.6rem;
+                    margin-bottom: 1rem;
+                    img{
+                        width: 4rem;
+                        height: 4rem;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
+    
+                input:hover, input:active{
+                    background-color: rgba(21, 21, 50, 0.704);
+                }
+    
+                button{
+                    margin-top: 1rem;
+                    width: max-content;
+                    background-color: rgba(30, 143, 255, 0.691);
+                    border: none;
+                    outline: none;
+                    color: white;
+                    padding: 0.5rem 3rem;
+                    border-radius: 0.5rem;
+                    font-weight: 500;
+    
+                    &:disabled{
+                        cursor: not-allowed;
+                        background-color: rgba(30, 143, 255, 0.4);
+                    }
+                }
+                button:hover{
+                    background-color: rgb(16, 135, 255);
+                }
+            }
+            p{
+               text-align: center;
+               margin-top: 1rem;
+               cursor: pointer;
+            }
+            p:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

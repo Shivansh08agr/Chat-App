@@ -5,13 +5,15 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'fire
 import {auth, db} from './../../lib/firebase.js';
 import { doc, setDoc } from "firebase/firestore"; 
 import upload from '../../lib/upload.js';
+import useWindowSize from './../../Hooks/useWindowSize';
 
 const Login = () => {
   const [avatar, setAvatar] = useState({
     file: null,
     url: ""
   });
-
+  const {width} = useWindowSize();
+  const [login, setLogin] = useState(true);
   const [loading, setLoading] = useState(false);
 
   function handleAvatar(e){
@@ -74,6 +76,8 @@ const Login = () => {
   }
   return (
     <div className='login'>
+      {width >= 768 ?(
+        <>
         <div className="item">
           <h1>Welcome Back,</h1>
           <form onSubmit={(e)=>handleLogin(e)}>
@@ -95,6 +99,33 @@ const Login = () => {
             <button disabled= {loading}>{loading? "Loading...": "Sign Up"}</button>
           </form>
         </div>
+        </>
+        ):(
+          <> 
+        <div className="item" style={{display: login? "block": "none"}}>
+          <h1>Welcome Back,</h1>
+          <form onSubmit={(e)=>handleLogin(e)}>
+            <input type="text" placeholder='Email' name='email'/>
+            <input type="password" placeholder='password' name='password'/>
+            <button disabled= {loading}>{loading? "Loading...": "Sign In"}</button>
+          </form>
+          <p onClick={()=>setLogin(false)}>Create a new Account</p>
+        </div>
+        <div className="item" style={{display: login? "none": "block"}}>
+        <h1>Create an Account</h1>
+        <form onSubmit={(e)=>handleRegister(e)}>
+            <label htmlFor="file">
+              <img src={avatar.url || './avatar.png'}/>Upload an image</label>
+            <input type="file" id='file' style={{display: "none"}} onChange={(e)=>handleAvatar(e)}/>
+            <input type="text" placeholder='Username' name='username'/>
+            <input type="text" placeholder='Email' name='email'/>
+            <input type="password" placeholder='password (min 6 characters)' name='password'/>
+            <button disabled= {loading}>{loading? "Loading...": "Sign Up"}</button>
+          </form>
+          <p onClick={()=>setLogin(true)}>Login to your account</p>
+        </div>
+        </>
+        )}
     </div>
   )
 }
